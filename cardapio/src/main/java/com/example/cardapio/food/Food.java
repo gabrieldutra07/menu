@@ -1,5 +1,7 @@
 package com.example.cardapio.food;
 
+import com.example.cardapio.food.dto.FoodRequestDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +34,12 @@ public class Food {
 	}
 	
 	
-
+	public Food(FoodRequestDTO data) {
+		this.image = data.image();
+		this.price = data.price();
+		this.title = data.title();
+	}
+	
 	public Food(Long id, String title, String image, Integer price) {
 		super();
 		this.id = id;
@@ -40,9 +47,11 @@ public class Food {
 		this.image = image;
 		this.price = price;
 	}
-
-
-
+	
+	public Food() {
+		
+	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
